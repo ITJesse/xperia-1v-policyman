@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 8+8 mode Device configuration file for open Market DSDS
+$Header: //components/rel/mmcp.mpss/10.0/policyman/configurations/DevConfig/DS/STATIC/5G_PLUS_4G/device_config.xml#1 $
+-->
+<policy name        = "Dual SIM Device Config"
+        changelist  = "$Change: 26056328 $"
+        policy_ver  = "2043.1.2.1"
+>
+
+  <initial>
+
+    <plmn_list name="global:r16_plmns" ns="global">440-* 441-* </plmn_list>
+    <device_configuration num_sims="2" max_active_voice="1" max_active_data="2">
+      <config primary="C G W L 5G" secondary="G W L 5G" />
+      <config primary="G W L 5G" secondary="C G W L 5G" />
+      <e911_config primary="C G W L 5G" secondary="G W L 5G" />
+      <e911_config primary="G W L 5G" secondary="C G W L 5G" />
+      <msim_config mode="5G_PLUS_4G" />
+      <release_config release="16" list="global:r16_plmns" fallback="5" restore="5" />
+    </device_configuration>
+
+    <feature subs="this">  dualmmode </feature>
+    <feature subs="other"> dualmmode </feature>
+
+  </initial>
+
+</policy>

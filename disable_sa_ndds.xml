@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Disable NR SA nDDS Post Policy
+$Header: //components/rel/mmcp.mpss/11.0/policyman/configurations/Carrier/Generic/disable_sa_ndds.xml#1 $
+-->
+<policy name        = "Disable NR SA on nDDS"
+        changelist  = "$Change: 18922297 $"
+        policy_ver  = "1112.2.8"
+>
+
+  <initial>
+
+    <rf_band_list ns="global" name="disable_sa_ndds:enable_sub6_bands">
+      <gw_bands  base="current" />
+      <lte_bands base="current" />
+      <tds_bands base="current" />
+      <nr5g_sa_bands base="current">
+        <intersect_with mask="SUB6" />      
+      </nr5g_sa_bands>
+      <nr5g_nsa_bands base="current">
+        <intersect_with mask="SUB6" />
+      </nr5g_nsa_bands>
+      <nr5g_nrdc_bands base="current" />
+    </rf_band_list>
+    
+    <rf_band_list ns="global" name="disable_sa_ndds:remove_sa_bands">
+      <gw_bands  base="current" />
+      <lte_bands base="current" />
+      <tds_bands base="current" />
+      <nr5g_sa_bands base="none" />
+      <nr5g_nsa_bands base="current" />
+      <nr5g_nrdc_bands base="current" />
+    </rf_band_list>
+ 
+    <rf_bands_if list="disable_sa_ndds:remove_sa_bands" />
+    <limited_rats_bands_if list="disable_sa_ndds:remove_sa_bands" />
+
+    <define_fullrat_config is_post="true">
+      <select>
+        <case>
+          <all_of>
+            <subs_is_active subs="this" />
+            <subs_is_active subs="other" />
+            <msim_cfg_mode_is> 5G_PLUS_5G </msim_cfg_mode_is>
+          </all_of>
+          <then>
+            <rf_bands list="disable_sa_ndds:enable_sub6_bands" />
+            <limited_rats_bands list="disable_sa_ndds:enable_sub6_bands" />        
+          </then>
+        </case>
+        <case>
+          <all_of>
+            <subs_is_active subs="this" />
+            <subs_is_active subs="other" />
+            <is_subs_dds subs="other" />
+            <msim_cfg_mode_is> 5G_PLUS_4G </msim_cfg_mode_is>
+          </all_of>
+          <then>
+            <rf_bands list="disable_sa_ndds:remove_sa_bands" />
+      <limited_rats_bands list="disable_sa_ndds:remove_sa_bands" />
+          </then>
+        </case>
+        <case>
+          <true />
+          <then>
+            <rf_bands list="global:default_bands" />
+            <limited_rats_bands list="global:default_bands" />
+    </then>
+        </case>
+      </select>  
+    </define_fullrat_config>
+    
+  </initial>
+
+  <if>
+    <not> <phone_operating_mode> ONLINE </phone_operating_mode> </not>
+    <then> 
+      <stop />
+    </then>
+  </if>
+
+  <select>
+
+    <case>
+      <all_of>
+        <subs_is_active subs="this" />
+        <subs_is_active subs="other" />
+        <msim_cfg_mode_is> 5G_PLUS_5G </msim_cfg_mode_is>
+      </all_of>
+      <then>
+        <rf_bands list="disable_sa_ndds:enable_sub6_bands" />
+        <limited_rats_bands list="disable_sa_ndds:enable_sub6_bands" />        
+      </then>
+    </case>
+
+    <case>
+      <all_of>
+        <subs_is_active subs="this" />
+        <subs_is_active subs="other" />
+        <is_subs_dds subs="other" />
+        <msim_cfg_mode_is> 5G_PLUS_4G </msim_cfg_mode_is>
+      </all_of>
+      <then>
+        <rf_bands list="disable_sa_ndds:remove_sa_bands" />
+  <limited_rats_bands list="disable_sa_ndds:remove_sa_bands" />
+      </then>
+    </case>
+
+  <case>
+      <true />
+      <then>
+        <rf_bands list="global:default_bands" />
+        <limited_rats_bands list="global:default_bands" />
+      </then>
+    </case>
+
+  </select>  
+
+</policy>

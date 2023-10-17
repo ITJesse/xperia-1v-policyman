@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy name            = "generic"
+        enabled         = "true"
+        schema_ver      = "1"
+        policy_ver      = "44.2.2">
+        <initial>
+                <!-- moved the plmns and mcc section to plmn_mcc_supported_01.xml file -->
+
+                <!-- RF Band List: Full supported bands -->
+                <rf_band_list ns="global" name="rf_bands_all">
+                        <gw_bands base="hardware" />
+                        <lte_bands base="hardware" />
+                        <tds_bands base="none" />
+                        <nr5g_sa_bands base="none">
+                                <include>2 27 40 76 77 78</include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none" />
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+
+                <!-- Define intial RF bands as GWL bands -->
+                <rf_bands_if list="rf_bands_all" />
+                <define_fullrat_config>
+                        <actions>
+                                <rf_bands list="rf_bands_all" />
+                        </actions>
+                </define_fullrat_config>
+
+                <!-- RF Band List Set -->
+                <rf_band_list ns="global" name="default_b">
+                        <gw_bands base="hardware"/>
+                        <lte_bands base="none">
+                                <include>0 2 3 4 6 7 11 12 16 17 18 20 25 27 37 38 39 40 41 65</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none">
+                                <include>2 27 40 76 77 78</include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none">
+                                <include>0 2 4 27 40 76 77 78</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="others_b">
+                        <gw_bands base="hardware"/>
+                        <lte_bands base="none">
+                                <include>0 2 3 4 6 7 11 12 16 17 18 20 25 27 37 38 39 40 41 65</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none" />
+                        <nr5g_nsa_bands base="none">
+                                <include>0 2 4 27 40 76 77 78</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="japan_other_b">
+                        <gw_bands base="none">
+                                <include>22 27 49 60</include>
+                        </gw_bands>
+                        <lte_bands base="none">
+                                <include>0 2 7 17 18 20 25 27 40 41</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none">
+                                <include>78</include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none">
+                                <include>2 27 40 76 77 78</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="fcc_b">
+                        <gw_bands base="hardware"/>
+                        <lte_bands base="none">
+                                <include>3 4 11 12 16 40 65</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none" />
+                        <nr5g_nsa_bands base="none">
+                                <include>4 40 76</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="ce_b">
+                        <gw_bands base="hardware"/>
+                        <lte_bands base="none">
+                                <include>0 2 6 7 27 37 39 41</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none" />
+                        <nr5g_nsa_bands base="none">
+                                <include>0 2 27 40 77</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="local_5G_b">
+                        <gw_bands base="none"/>
+                        <lte_bands base="none"/>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none">
+                                <include>78</include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none"/>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="local_service_b">
+                        <gw_bands base="hardware"/>
+                        <lte_bands base="none">
+                                <include>0 2 7 17 18 20 25 27 40 41</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none">
+                                <include>78</include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none"/>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="docomo_jp_b">
+                        <gw_bands base="none">
+                                <include>22 27 49 60</include>
+                        </gw_bands>
+                        <lte_bands base="none">
+                                <include>0 2 7 17 18 20 25 27 40 41</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none">
+                                <include>77 78</include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none">
+                                <include>0 27 77 78</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="kddi_jp_b">
+                        <gw_bands base="none">
+                                <include>22 27 49 60</include>
+                        </gw_bands>
+                        <lte_bands base="none">
+                                <include>0 2 7 17 18 20 25 27 40 41</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none">
+                                <include>2 27 40 76 77</include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none">
+                                <include>2 27 40 76 77</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="rakuten_jp_b">
+                        <gw_bands base="none">
+                                <include>22 27 49 60</include>
+                        </gw_bands>
+                        <lte_bands base="none">
+                                <include>0 2 7 17 18 20 25 27 40 41</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none"/>
+                        <nr5g_nsa_bands base="none">
+                                <include>2 27 40 76 77</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <rf_band_list ns="global" name="softbank_jp_b">
+                        <gw_bands base="none">
+                                <include>22 27 49 60</include>
+                        </gw_bands>
+                        <lte_bands base="none">
+                                <include>0 2 7 17 18 20 25 27 40 41</include>
+                        </lte_bands>
+                        <tds_bands base="none"/>
+                        <nr5g_sa_bands base="none">
+                                <include>2 27 76</include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none">
+                                <include>2 27 76</include>
+                        </nr5g_nsa_bands>
+                        <nr5g_nrdc_bands base="none" />
+                </rf_band_list>
+                <!-- 11 china_hk_macao_bands -->
+                <rf_band_list name="china_hk_macao_bands">
+                        <gw_bands base="hardware" />
+                        <lte_bands base="none">
+                                <include> 0 2 6 7 37 39 40 45 </include>
+                        </lte_bands>                        <!-- the 8 LTE Band: 1/3/7/8/38/40/46-->
+                        <tds_bands base="hardware" />
+                        <!-- 20170608 liuweibin, open tds_bands for China cmcc -->
+                </rf_band_list>
+                <!-- 13 cn_cmcc_bands -->
+                <rf_band_list name="cn_cmcc_bands">
+                        <gw_bands base="hardware" />
+                        <lte_bands base="none">
+                                <include> 3 8 34 38 39 40 41 </include>
+                        </lte_bands>                        <!-- the 7 LTE Band: 1/3/7/8/34/38/39/40/41/46-->
+                        <tds_bands base="none" />
+                        <nr5g_sa_bands base="none">
+                                <include> 28 41 79 </include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none">
+                                <include> 28 41 79 </include>
+                        </nr5g_nsa_bands>
+                </rf_band_list>
+                <!-- 13 cn_cucc_bands -->
+                <rf_band_list name="cn_cucc_bands">
+                        <gw_bands base="hardware" />
+                        <lte_bands base="none">
+                                <include> 1 3 8 40 41 </include>                                <!-- the 6 LTE Band: 1/3/8/40/41/46-->
+                        </lte_bands>
+                        <tds_bands base="none" />
+                        <nr5g_sa_bands base="none">
+                                <include> 1 8 78 </include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none">
+                                <include> 1 8 78 </include>
+                        </nr5g_nsa_bands>
+                </rf_band_list>
+                <!-- 13 cn_ctcc_bands -->
+                <rf_band_list name="cn_ctcc_bands">
+                        <gw_bands base="none" />
+                        <lte_bands base="none">
+                                <include> 1 3 5 38 39 41 </include>                                <!-- the 9 LTE Band: 1/3/5/8/26/34/39/40/41/46-->
+                        </lte_bands>
+                        <tds_bands base="none" />
+                        <nr5g_sa_bands base="hardware">
+                                <include> 1 5 78 </include>
+                        </nr5g_sa_bands>
+                        <nr5g_nsa_bands base="none">
+                                <include> 78 </include>
+                        </nr5g_nsa_bands>
+                </rf_band_list>
+        </initial>
+
+        <!-- Rule I Remove band limitation when toggling flight mode -->
+        <rule>
+                <conditions>
+                        <not>
+                                <phone_operating_mode> ONLINE </phone_operating_mode>
+                        </not>
+                </conditions>
+                <actions>
+                        <rf_bands list="rf_bands_all" />
+                </actions>
+        </rule>
+
+        <!-- Rule II Set svc_mode FULL -->
+        <rule>
+                <conditions>
+                        <have_location />
+                </conditions>
+                <actions>
+                        <svc_mode> FULL </svc_mode>
+                </actions>
+        </rule>
+
+        <!-- Default band set -->
+        <rule>
+                <conditions>
+                        <true/>
+                </conditions>
+                <actions>
+                        <rf_bands list="default_b"/>
+                </actions>
+        </rule>
+
+        <!-- Stop of not have_location -->
+        <rule>
+                <conditions>
+                        <not>
+                                <have_location/>
+                        </not>
+                </conditions>
+                <actions>
+                        <stop />
+                </actions>
+        </rule>
+
+        <!-- Other Band set -->
+        <rule>
+                <conditions>
+                        <have_location/>
+                </conditions>
+                <actions>
+                        <rf_bands list="others_b"/>
+                </actions>
+        </rule>
+
+        <!-- Default mcc Band set -->
+        <rule>
+                <conditions>
+                        <have_location/>
+                </conditions>
+                <actions>
+                        <if>
+                                <cond>
+                                        <location_mcc_in list="default_m"/>
+                                </cond>
+                                <then>
+                                        <rf_bands list="default_b"/>
+                                        <stop />
+                                </then>
+                        </if>
+                </actions>
+        </rule>
+
+        <!-- Band set -->
+        <if>
+                <cond>
+                        <location_mcc_in list="japan_other_m"/>
+                </cond>
+                <then>
+                        <if>
+                                <cond>
+                                        <serving_plmn_in list="docomo_jp_p"/>
+                                </cond>
+                                <then>
+                                        <rf_bands list="docomo_jp_b"/>
+                                        <stop />
+                                </then>
+                        </if>
+                        <if>
+                                <cond>
+                                        <serving_plmn_in list="kddi_jp_p"/>
+                                </cond>
+                                <then>
+                                        <rf_bands list="kddi_jp_b"/>
+                                        <stop />
+                                </then>
+                        </if>
+                        <if>
+                                <cond>
+                                        <serving_plmn_in list="rakuten_jp_p"/>
+                                </cond>
+                                <then>
+                                        <rf_bands list="rakuten_jp_b"/>
+                                        <stop />
+                                </then>
+                        </if>
+                        <if>
+                                <cond>
+                                        <serving_plmn_in list="softbank_jp_p"/>
+                                </cond>
+                                <then>
+                                        <rf_bands list="softbank_jp_b"/>
+                                        <stop />
+                                </then>
+                        </if>
+                        <rf_bands list="japan_other_b"/>
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <location_mcc_in list="china_mccs"/>
+                </cond>
+                <then>
+                        <if>
+                                <cond>
+                                        <serving_plmn_in list="cmcc_plmn"/>
+                                </cond>
+                                <then>
+                                        <rf_bands list="cn_cmcc_bands"/>
+                                        <stop />
+                                </then>
+                        </if>
+                        <if>
+                                <cond>
+                                        <serving_plmn_in list="cucc_plmn"/>
+                                </cond>
+                                <then>
+                                        <rf_bands list="cn_cucc_bands"/>
+                                        <stop />
+                                </then>
+                        </if>
+                        <if>
+                                <cond>
+                                        <serving_plmn_in list="ctcc_plmn"/>
+                                </cond>
+                                <then>
+                                        <rf_bands list="cn_ctcc_bands"/>
+                                        <stop />
+                                </then>
+                        </if>
+                        <rf_bands list="china_hk_macao_bands"/>
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <location_mcc_in list="fcc_m"/>
+                </cond>
+                <then>
+                        <rf_bands list="fcc_b"/>
+                        <stop />
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <location_mcc_in list="ce_m"/>
+                </cond>
+                <then>
+                        <rf_bands list="ce_b"/>
+                        <stop />
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <serving_plmn_in list="local_5G_p"/>
+                </cond>
+                <then>
+                        <rf_bands list="local_5G_b"/>
+                        <stop />
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <location_mcc_in list="local_service_m"/>
+                </cond>
+                <then>
+                        <rf_bands list="local_service_b"/>
+                        <stop />
+                </then>
+        </if>
+</policy>

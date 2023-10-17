@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Post Policy for NRDC bands
+$Header: //components/rel/mmcp.mpss/11.0/policyman/configurations/Carrier/Generic/nrdc_msim_concurrency.xml#1 $
+-->
+<policy name        = "NRDC MSIM Concurrency bands"
+        changelist  = "$Change: 18922297 $"
+        policy_ver  = "1115.2.0"
+>
+
+  <initial>
+
+    <rf_band_list ns="global" name="nrdc_msim_concurrency:nrdc_bands_not_allowed">
+      <gw_bands base="current" />
+      <tds_bands base="none" />
+      <lte_bands base="current" />
+      <nr5g_sa_bands base="current" />
+      <nr5g_nsa_bands base="current" />
+      <nr5g_nrdc_bands base="none" />
+    </rf_band_list>
+    
+    <define_fullrat_config is_post="true">
+      <select>
+        <case>
+          <all_of>
+            <subs_is_active subs="this" />
+            <not> <subs_is_active subs="other" /> </not>
+          </all_of>
+          <then>
+            <rf_bands list="global:default_bands" />
+            <limited_rats_bands list="global:default_bands" />
+          </then>
+        </case>
+    
+        <case>
+          <true />
+          <then>
+            <rf_bands list="nrdc_msim_concurrency:nrdc_bands_not_allowed" />
+            <limited_rats_bands list="nrdc_msim_concurrency:nrdc_bands_not_allowed" />
+          </then>
+        </case>
+      </select> 
+    </define_fullrat_config>
+
+  </initial>
+
+  <if>
+    <any_of>
+      <not> <phone_operating_mode> ONLINE </phone_operating_mode> </not>
+    </any_of>
+    <then> 
+      <stop />
+    </then>
+  </if>
+
+  <select>
+    <!-- NRDC is disabled in MSIM configuration, unless only 1 sub is active
+    -->
+    <case>
+      <all_of>
+        <subs_is_active subs="this" />
+        <not> <subs_is_active subs="other" /> </not>
+      </all_of>
+      <then>
+        <rf_bands list="global:default_bands" />
+        <limited_rats_bands list="global:default_bands" />
+      </then>
+    </case>
+
+    <case>
+      <true />
+      <then>
+        <rf_bands list="nrdc_msim_concurrency:nrdc_bands_not_allowed" />
+        <limited_rats_bands list="nrdc_msim_concurrency:nrdc_bands_not_allowed" />
+      </then>
+    </case>
+  </select>
+
+</policy>

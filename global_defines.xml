@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Common Global Definitions Policy
+$Header: //components/rel/mmcp.mpss/11.2/policyman/configurations/Carrier/GenericCountry/global_defines.xml#1 $
+-->
+<policy name        = "Common Global Definitions for Post XMLs"
+        changelist  = "$Change: $"
+        
+policy_ver  = "1111.2.8">
+
+  <initial>
+
+    <mcc_list name="global:china_mccs" ns="global"> 460 </mcc_list>
+    <mcc_list name="global:japan_mccs" ns="global"> 440 441 </mcc_list>
+    <mcc_list name="global:test_mccs" ns="global"> 001 002 003 004 005 006 007 008 009 010 011 012 </mcc_list>
+
+    <plmn_list name="global:cmcc_plmn" ns="global"> 460-00 460-02 460-04 460-07 460-08 </plmn_list>
+    <plmn_list name="global:cu_plmn" ns="global"> 460-01 460-06 460-09 </plmn_list>
+    <plmn_list name="global:ct_plmn" ns="global"> 460-03 460-05 460-11 460-12 455-02 455-07 460-59 </plmn_list>
+
+    <!-- To enable dynamic release config, use "global:r16_plmns" definition
+         below and modify device_config.xml
+    <plmn_list name="global:r16_plmns" ns="global"> 310-* 311-* </plmn_list>
+    -->
+    <!-- US Russia Japan Korea -->
+    <plmn_list name="msim_plmns" ns="global"> 310-* 311-* 312-* 313-* 314-* 315-* 316-* 250-* 440-* 441-* 450-* </plmn_list>
+    <mcc_list name="global:dsda_mccs" ns="global"> 460 </mcc_list>
+
+    <rf_band_list ns="global" name="global:default_bands">
+      <gw_bands base="current" />
+      <lte_bands base="current" />
+      <tds_bands base="none" />
+      <nr5g_sa_bands base="current" />
+      <nr5g_nsa_bands base="current" />
+      <nr5g_nrdc_bands base="current" />
+    </rf_band_list>
+
+    <rf_band_list ns="global" name="snpn_bands">
+      <gw_bands base="none" />
+      <lte_bands base="none" />
+      <tds_bands base="none" />
+      <nr5g_sa_bands base="hardware" />
+      <nr5g_nsa_bands base="none" />
+      <nr5g_nrdc_bands base="none" />
+    </rf_band_list>
+
+  </initial>
+
+</policy>
+

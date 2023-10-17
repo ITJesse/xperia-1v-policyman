@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy name            = "generic"
+        enabled         = "true"
+        schema_ver      = "1"
+        policy_ver      = "44.2.3">
+        <initial>
+                <!-- moved the plmns and mcc section to plmn_mcc_supported_01.xml file -->
+
+                <!-- CA comb default set -->
+                <ca_band_combos string="" />
+        </initial>
+
+        <!-- Stop of not have_location -->
+        <rule>
+                <conditions>
+                        <not>
+                                <have_location/>
+                        </not>
+                </conditions>
+                <actions>
+                        <stop />
+                </actions>
+        </rule>
+
+        <!-- CA comb default set for others -->
+        <if>
+                <cond>
+                        <have_location />
+                </cond>
+                <then>
+                        <ca_band_combos string="26AA-1A-mAll;26A-1AA-mAll;28AA-1A-mAll;28A-1AA-mAll;3AA-1A-mAll;3A-1AA-mAll;41AA-1A-mAll;41A-1AA-mAll;41CA-1A-mAll;41C-1AA-mAll;42AA-1A-mAll;42A-1AA-mAll;42CA-1A-mAll;42C-1AA-mAll;8AA-1A-mAll;8A-1AA-mAll;26AA-3A-mAll;26A-3AA-mAll;28AA-3A-mAll;28A-3AA-mAll;8AA-3A-mAll;8A-3AA-mAll;41CA-mAll;42CA-mAll;" />
+                </then>
+        </if>
+
+        <!-- CA comb set -->
+        <if>
+                <cond>
+                        <serving_mcc_in list="default_m" />
+                </cond>
+                <then>
+                        <ca_band_combos string="" />
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <serving_mcc_in list="japan_other_m" />
+                </cond>
+                <then>
+                        <ca_band_combos string="28AA-1A-mAll;28A-1AA-mAll;3AA-1A-mAll;3A-1AA-mAll;28AA-3A-1A-mAll;28A-3AA-1A-mAll;28A-3A-1AA-mAll;28AA-3A-mAll;28A-3AA-mAll;3AA-3A-mAll;8AA-1A-mAll;8A-1AA-mAll;8AA-3A-1A-mAll;8A-3AA-1A-mAll;8A-3A-1AA-mAll;8AA-3A-mAll;8A-3AA-mAll;41AA-3A-mAll;41A-3AA-mAll;41CA-mAll;41AA-28A-mAll;41A-28AA-mAll;28AA-1AA-mAll;28AA-3A-1AA-mAll;28AA-3AA-1A-mAll;28AA-3AA-mAll;41CC-mAll;" />
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <serving_mcc_in list="china_mccs" />
+                </cond>
+                <then>
+                        <ca_band_combos string="7C44C-m7;7C44A-m7;40C44C-m7;40C44A-m7;3A4A-1A4-m3;3A4-1A4A-m3;7A4A-1A4-m3;7A4-1A4A-m3;8A2A-1A4-m7;8A2-1A4A-m7;7A4A-3A4-m3;7A4-3A4A-m3;8A2A-3A4-mF;8A2-3A4A-mF;40A4A-3A2-m3;40A4-3A2A-m3;40A2A-3A4-m3;40A2-3A4A-m3;40A2A-7A4-m1;40A2-7A4A-m1;46A2A-1A4-m3;46A2-1A4A-m3;46A2A-3A4-m3;46A2-3A4A-m3;46A2A-7A4-m3;46A2-7A4A-m3;7A4A-3A4-1A4-m3;7A4-3A4A-1A4-m3;7A4-3A4-1A4A-m3;8A2A-3A4-1A4-mF;8A2-3A4A-1A4-mF;8A2-3A4-1A4A-mF;7A4A-7A4-3A4-m3;7A4-7A4A-3A4-m3;7A4-7A4-3A4A-m3;7C44C-3A4-m3;7C44A-3A4-m3;7C44-3A4A-m3;40C44A-3A4-m1;40C44-3A4A-m1;40C44A-7A4-m1;40C44-7A4A-m1;40D444A-m3;46C22A-1A4-m3;46C22-1A4A-m3;46C22A-3A4-m3;46C22-3A4A-m3;46C22A-7A4-m3;46C22-7A4A-m3;" />
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <serving_mcc_in list="fcc_m" />
+                </cond>
+                <then>
+                        <ca_band_combos string="41CA-mAll;41CC-mAll;" />
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <serving_mcc_in list="ce_m" />
+                </cond>
+                <then>
+                        <ca_band_combos string="42CA-mAll;28AA-1A-mAll;28A-1AA-mAll;42AA-1A-mAll;42A-1AA-mAll;42CA-1A-mAll;42C-1AA-mAll;3AA-1A-mAll;3A-1AA-mAll;28AA-3A-mAll;28A-3AA-mAll;8AA-1A-mAll;8A-1AA-mAll;8AA-3A-mAll;8A-3AA-mAll;" />
+                </then>
+        </if>
+        <if>
+                <cond>
+                        <serving_mcc_in list="local_service_m" />
+                </cond>
+                <then>
+                        <ca_band_combos string="28AA-1A-mAll;28A-1AA-mAll;3AA-1A-mAll;3A-1AA-mAll;28AA-3A-1A-mAll;28A-3AA-1A-mAll;28A-3A-1AA-mAll;28AA-3A-mAll;28A-3AA-mAll;3AA-3A-mAll;8AA-1A-mAll;8A-1AA-mAll;8AA-3A-1A-mAll;8A-3AA-1A-mAll;8A-3A-1AA-mAll;8AA-3A-mAll;8A-3AA-mAll;41AA-3A-mAll;41A-3AA-mAll;41CA-mAll;41AA-28A-mAll;41A-28AA-mAll;" />
+                </then>
+        </if>
+</policy>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy name            = "generic"
+        enabled         = "true"
+        schema_ver      = "1"
+        policy_ver      = "44.2.1">
+  <initial>
+    <!-- Default MCC(s) -->
+    <mcc_list ns="global" name="default_m">001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018 019 020 021 022 023 024 025 026 027 028 029 030 031 032 033 034 035 036 037 038 039 040 041 042 043 044 045 046 047 048 049 050 051 052 053 054 055 056 057 058 059 060 061 062 063 064 065 066 067 068 069 070 071 072 073 074 075 076 077 078 079 080 081 082 083 084 085 086 087 088 089 090 091 092 093 094 095 096 097 098 099</mcc_list>
+
+    <!-- Japan other MCC(s) -->
+    <mcc_list ns="global" name="japan_other_m"> 440 441 </mcc_list>
+
+    <!-- FCC MCC(s) -->
+    <mcc_list ns="global" name="fcc_m"> 310 311 312 313 314 315 316 330 332 544 </mcc_list>
+
+    <!-- CE MCC(s) -->
+    <mcc_list ns="global" name="ce_m"> 202 204 206 208 212 213 214 218 219 220 221 222 225 226 228 230 231 232 234 238 240 242 244 246 247 248 260 262 266 268 270 272 274 276 278 280 284 286 288 289 292 293 294 295 297 </mcc_list>
+
+    <!-- Local Service MCC(s) -->
+    <mcc_list ns="global" name="local_service_m"> 991 999 </mcc_list>
+
+    <mcc_list ns="global" name="china_mccs"> 460 </mcc_list>
+
+    <!-- Local 5G service PLMN(s) -->
+    <plmn_list ns="global" name="local_5G_p"> 999-002 </plmn_list>
+
+    <!-- Docomo PLMN(s) -->
+    <plmn_list ns="global" name="docomo_jp_p"> 440-10 </plmn_list>
+
+    <!-- KDDI PLMN(s) -->
+    <plmn_list ns="global" name="kddi_jp_p">
+    440-07 440-08
+    440-50 440-51 440-52 440-54 440-55 440-56
+    440-70 440-71 440-72 440-73 440-74 440-75 440-76 440-77 440-78 440-79
+    440-88 440-89
+    441-70
+    </plmn_list>
+
+    <!-- Rakuten PLMN(s) -->
+    <plmn_list ns="global" name="rakuten_jp_p"> 440-11 440-53 </plmn_list>
+
+    <!-- Softbank PLMN(s) -->
+    <plmn_list ns="global" name="softbank_jp_p"> 440-00 440-20 441-00 </plmn_list>
+
+    <!-- China PLMN(s) -->
+    <plmn_list ns="global" name="cmcc_plmn"> 460-00 460-02 460-04 460-07 460-08 </plmn_list>
+    <plmn_list ns="global" name="cu_plmn"> 460-01 460-06 460-09 </plmn_list>
+    <plmn_list ns="global" name="ct_plmn"> 460-03 460-05 460-11 460-12 455-02 455-07 460-59 </plmn_list>
+
+  </initial>
+</policy>
