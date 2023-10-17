@@ -59,3 +59,17 @@ Start Client -> EFS Explorer
 下载本项目中的 xml 文件，拖动到文件夹内覆盖。
 
 重启手机，你就能连接到 5G 网络，任务栏会同时出现 VoNR 的标志。
+
+### 重新上锁（可选）
+
+1. 将 init_boot 刷回原版：`fastboot flash init_boot <init_boot.img>`
+2. 上锁：`fastboot oem lock`
+3. 重启：`fastboot reboot`
+
+如果出现任何情况导致无法开机，屏幕提示系统损坏，通常是因为 root 之后修改了系统分区之类的情况。此时也不要慌张。
+
+此时你有两个选择：
+1. 重新解锁后恢复所有受损分区，然后再上锁
+2. 使用 Xperia Companion 恢复
+
+我倾向于使用后者。
